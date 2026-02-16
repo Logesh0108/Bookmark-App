@@ -4,14 +4,15 @@ import { supabase } from "./supabase"
 
 export default function Home() {
 
-  const loginWithGoogle = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: "http://localhost:3000/dashboard",
-      },
-    })
-  }
+const loginWithGoogle = async () => {
+  await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: `${window.location.origin}/dashboard`,
+    },
+  })
+}
+
 
   return (
     <main className="flex items-center justify-center min-h-screen px-6">
